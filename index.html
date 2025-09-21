@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProSound Rental Services</title>
+    <title>Kings Services - Professional Sound Rental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #3498db;
-            --light: #ecf0f1;
+            --primary: #D6B380;  /* Main gold color */
+            --secondary: #696C6D; /* Navigation gray */
+            --accent: #1a237e;
+            --light: #f5f5f5;
             --dark: #2c3e50;
+            --gray: #757575;
         }
         
         * {
@@ -27,15 +29,37 @@
         }
         
         header {
-            background: linear-gradient(to right, var(--primary), var(--dark));
+            background: linear-gradient(to right, var(--dark), var(--accent));
             color: white;
             padding: 1rem;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 2rem;
+            color: var(--dark);
+            border: 3px solid white;
+        }
+        
         nav {
-            background-color: var(--dark);
+            background-color: var(--secondary);
             padding: 0.5rem;
         }
         
@@ -43,6 +67,7 @@
             display: flex;
             justify-content: center;
             list-style: none;
+            flex-wrap: wrap;
         }
         
         nav ul li {
@@ -54,10 +79,12 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 0.5rem;
+            display: block;
         }
         
         nav ul li a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
         
         .container {
@@ -69,8 +96,8 @@
         .hero {
             text-align: center;
             padding: 3rem 1rem;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%232c3e50" width="100" height="100"/><path fill="%233498db" opacity="0.2" d="M0 0L100 100"></path></svg>');
-            background-color: var(--primary);
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%232c3e50" width="100" height="100"/><path fill="%23D6B380" opacity="0.2" d="M0 0L100 100"></path></svg>');
+            background-color: var(--dark);
             color: white;
             border-radius: 8px;
             margin-bottom: 2rem;
@@ -96,7 +123,7 @@
         }
         
         .calculator h2 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 1.5rem;
             text-align: center;
         }
@@ -109,9 +136,10 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            color: var(--dark);
         }
         
-        input[type="number"] {
+        input[type="number"], select {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #ddd;
@@ -138,14 +166,14 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: var(--accent);
+            background: var(--primary);
             cursor: pointer;
         }
         
         .slider-value {
             text-align: center;
             font-weight: bold;
-            color: var(--primary);
+            color: var(--dark);
             margin-top: 0.5rem;
         }
         
@@ -162,6 +190,7 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
         }
         
         .equipment-card:hover {
@@ -175,6 +204,7 @@
             align-items: center;
             justify-content: center;
             color: #777;
+            background: linear-gradient(to bottom right, #e0e0e0, #f5f5f5);
         }
         
         .equipment-content {
@@ -182,14 +212,26 @@
         }
         
         .equipment-content h3 {
-            color: var(--primary);
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .brand-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
             margin-bottom: 0.5rem;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--accent);
-            color: white;
+            background-color: var(--primary);
+            color: var(--dark);
             padding: 0.8rem 1.5rem;
             border: none;
             border-radius: 4px;
@@ -197,10 +239,12 @@
             cursor: pointer;
             transition: background-color 0.3s;
             text-decoration: none;
+            font-weight: 600;
         }
         
         .btn:hover {
-            background-color: var(--primary);
+            background-color: var(--dark);
+            color: white;
         }
         
         .btn-center {
@@ -211,23 +255,51 @@
         }
         
         .result {
-            background-color: #e8f4fc;
+            background-color: #f9f5eb;
             padding: 1.5rem;
             border-radius: 8px;
             margin-top: 1.5rem;
             text-align: center;
             display: none;
+            border-left: 4px solid var(--primary);
         }
         
         .result h3 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 1rem;
         }
         
         .price {
             font-size: 2rem;
             font-weight: bold;
-            color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .service-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-card h3 i {
+            margin-right: 10px;
+            color: var(--primary);
         }
         
         footer {
@@ -236,6 +308,44 @@
             text-align: center;
             padding: 2rem;
             margin-top: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
         }
         
         @media (max-width: 768px) {
@@ -248,16 +358,23 @@
                 margin: 0.5rem 0;
             }
             
-            .equipment-grid {
+            .equipment-grid, .services {
                 grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>ProSound Rental Services</h1>
-        <p>Professional Audio Equipment for Events of All Sizes</p>
+        <div class="logo-container">
+            <div class="logo">KS</div>
+            <h1>Kings Services</h1>
+        </div>
+        <p>Professional Sound Equipment Rental for Events of All Sizes</p>
     </header>
     
     <nav>
@@ -265,6 +382,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#calculator">Pricing Calculator</a></li>
             <li><a href="#equipment">Our Equipment</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
@@ -277,7 +395,7 @@
         </section>
         
         <section id="calculator" class="calculator">
-            <h2>Event Pricing Calculator</h2>
+            <h2 class="section-title">Event Pricing Calculator</h2>
             <div class="form-group">
                 <label for="attendees">Number of Attendees</label>
                 <input type="number" id="attendees" min="20" max="2500" value="100">
@@ -300,39 +418,59 @@
             
             <div class="form-group">
                 <label for="duration">Rental Duration (days)</label>
-                <input type="number" id="duration" min="1" max="7" value="1">
+                <input type="number" id="duration" min="1" max="30" value="1">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="technician"> Include Sound Technician (+KSh 1000/day)
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="transport" checked> Include Transport (Free for events over 100 people)
+                </label>
             </div>
             
             <button id="calculate-btn" class="btn btn-center">Calculate Price</button>
             
             <div id="result" class="result">
                 <h3>Estimated Rental Cost</h3>
-                <div id="price" class="price">$0.00</div>
-                <p>This is an estimate. Final pricing may vary based on specific requirements.</p>
+                <div id="price" class="price">KSh 0.00</div>
+                <p>Price includes equipment rental for <span id="days-result">1</span> day(s) for <span id="people-result">100</span> people.</p>
+                <p id="discount-note" style="color: var(--primary); font-weight: bold; display: none;">Long-term rental discount applied!</p>
             </div>
         </section>
         
         <section id="equipment">
-            <h2>Our Equipment Inventory</h2>
+            <h2 class="section-title">Our Equipment Inventory</h2>
             <div class="equipment-grid">
                 <div class="equipment-card">
-                    <div class="equipment-img">Speaker Image</div>
+                    <div class="equipment-img"><i class="fas fa-volume-up fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>Professional Speakers</h3>
-                        <p>19 high-quality speakers for crystal clear sound distribution.</p>
+                        <div>
+                            <span class="brand-tag">EV</span>
+                            <span class="brand-tag">FBT</span>
+                            <span class="brand-tag">DB Technologies</span>
+                            <span class="brand-tag">ADMARK</span>
+                        </div>
+                        <p>19 high-quality speakers from top brands for crystal clear sound distribution.</p>
                     </div>
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img">ADMARK System</div>
+                    <div class="equipment-img"><i class="fas fa-music fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>ADMARK Complete Set</h3>
+                        <span class="brand-tag">ADMARK</span>
                         <p>Standalone professional sound system for events of all sizes.</p>
                     </div>
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img">Snake Cable</div>
+                    <div class="equipment-img"><i class="fas fa-plug fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>Snake Cables</h3>
                         <p>3 x 50m professional audio snake cables for seamless connectivity.</p>
@@ -340,7 +478,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img">Drum Set</div>
+                    <div class="equipment-img"><i class="fas fa-drum fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>Drum Set</h3>
                         <p>Complete professional drum set for live performances.</p>
@@ -348,7 +486,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img">Guitar & Combo</div>
+                    <div class="equipment-img"><i class="fas fa-guitar fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>Guitars & Combos</h3>
                         <p>Solo guitar, bass guitar, and their respective combos.</p>
@@ -356,7 +494,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img">Mixers</div>
+                    <div class="equipment-img"><i class="fas fa-sliders-h fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>Audio Mixers</h3>
                         <p>3 professional mixers for perfect sound control and balancing.</p>
@@ -364,7 +502,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img">Keyboards</div>
+                    <div class="equipment-img"><i class="fas fa-keyboard fa-3x"></i></div>
                     <div class="equipment-content">
                         <h3>Keyboards</h3>
                         <p>2 professional keyboards for musical performances.</p>
@@ -373,16 +511,54 @@
             </div>
         </section>
         
+        <section id="services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3><i class="fas fa-truck"></i> Equipment Delivery</h3>
+                    <p>We provide reliable transportation for all our equipment to your event location.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-user-tie"></i> Sound Technicians</h3>
+                    <p>Our experienced technicians will set up and operate the equipment for optimal performance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-tools"></i> Setup & Support</h3>
+                    <p>Full setup, sound checking, and ongoing support throughout your event.</p>
+                </div>
+            </div>
+        </section>
+        
         <section id="contact">
-            <h2>Contact Us</h2>
+            <h2 class="section-title">Contact Us</h2>
             <p>Ready to book or have questions? Reach out to our team for personalized assistance.</p>
-            <p>Email: info@prosoundrentals.com | Phone: (555) 123-4567</p>
-            <a href="#" class="btn btn-center">Send Message</a>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+254791276880</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@kingsservices.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Nairobi, Kenya</span>
+                </div>
+            </div>
+            
+            <a href="tel:+254791276880" class="btn btn-center">Call Now</a>
         </section>
     </div>
     
     <footer>
-        <p>&copy; 2023 ProSound Rental Services. All rights reserved.</p>
+        <p>&copy; 2023 Kings Services. All rights reserved.</p>
+        <p>Professional Sound Equipment Rental</p>
     </footer>
 
     <script>
@@ -393,6 +569,11 @@
         const calculateBtn = document.getElementById('calculate-btn');
         const resultDiv = document.getElementById('result');
         const priceElement = document.getElementById('price');
+        const daysResult = document.getElementById('days-result');
+        const peopleResult = document.getElementById('people-result');
+        const discountNote = document.getElementById('discount-note');
+        const technicianCheckbox = document.getElementById('technician');
+        const transportCheckbox = document.getElementById('transport');
         
         // Sync slider and input field
         attendeesRange.addEventListener('input', function() {
@@ -412,18 +593,20 @@
             const attendees = parseInt(attendeesInput.value);
             const duration = parseInt(document.getElementById('duration').value);
             const eventType = document.getElementById('event-type').value;
+            const includeTechnician = technicianCheckbox.checked;
+            const includeTransport = transportCheckbox.checked;
             
             // Base pricing algorithm
             let basePrice;
             
             if (attendees <= 100) {
-                basePrice = 500;
+                basePrice = 5000;
             } else if (attendees <= 500) {
-                basePrice = 1000;
+                basePrice = 15000;
             } else if (attendees <= 1000) {
-                basePrice = 2000;
+                basePrice = 30000;
             } else {
-                basePrice = 3500;
+                basePrice = 50000;
             }
             
             // Event type multiplier
@@ -445,14 +628,31 @@
                     multiplier = 1;
             }
             
-            // Duration adjustment
-            const durationAdjustment = duration > 1 ? duration * 0.8 : 1;
+            // Duration adjustment with discount for long-term rentals
+            let durationAdjustment = duration;
+            if (duration > 7) {
+                durationAdjustment = duration * 0.8; // 20% discount for rentals longer than 7 days
+                discountNote.style.display = 'block';
+            } else {
+                discountNote.style.display = 'none';
+            }
+            
+            // Additional services
+            let technicianCost = includeTechnician ? 1000 * duration : 0;
+            let transportCost = 0;
+            
+            // Free transport for events over 100 people
+            if (includeTransport && attendees <= 100) {
+                transportCost = 2000;
+            }
             
             // Calculate final price
-            const finalPrice = basePrice * multiplier * durationAdjustment;
+            const finalPrice = (basePrice * multiplier * durationAdjustment) + technicianCost + transportCost;
             
             // Display result
-            priceElement.textContent = `$${finalPrice.toFixed(2)}`;
+            priceElement.textContent = `KSh ${finalPrice.toLocaleString()}`;
+            daysResult.textContent = duration;
+            peopleResult.textContent = attendees;
             resultDiv.style.display = 'block';
             
             // Scroll to result
