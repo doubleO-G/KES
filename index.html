@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kings Services - Professional Sound Rental</title>
+    <title>Kings Services - Premium Sound & MC Rental</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #D6B380;  /* Main gold color */
             --secondary: #696C6D; /* Navigation gray */
             --accent: #1a237e;
-            --light: #f5f5f5;
+            --light: #f8f9fa;
             --dark: #2c3e50;
+            --darker: #1a202c;
             --gray: #757575;
+            --light-gray: #e2e8f0;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
         
         body {
-            background-color: #f8f9fa;
+            background-color: var(--light);
             color: #333;
             line-height: 1.6;
         }
         
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
         header {
-            background: linear-gradient(to right, var(--dark), var(--accent));
+            background: linear-gradient(to right, var(--darker), var(--accent));
             color: white;
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%231a202c" width="100" height="100"/><path fill="%23D6B380" opacity="0.1" d="M0 0L100 100"></path></svg>');
+            background-size: cover;
         }
         
         .logo-container {
@@ -41,11 +62,13 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
@@ -53,14 +76,19 @@
             justify-content: center;
             margin-right: 15px;
             font-weight: bold;
-            font-size: 2rem;
-            color: var(--dark);
+            font-size: 2.2rem;
+            color: var(--darker);
             border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         nav {
             background-color: var(--secondary);
-            padding: 0.5rem;
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         nav ul {
@@ -71,7 +99,7 @@
         }
         
         nav ul li {
-            margin: 0 1rem;
+            margin: 0 1.2rem;
         }
         
         nav ul li a {
@@ -81,6 +109,7 @@
             transition: color 0.3s;
             padding: 0.5rem;
             display: block;
+            font-size: 1.1rem;
         }
         
         nav ul li a:hover {
@@ -90,65 +119,78 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
         }
         
         .hero {
             text-align: center;
-            padding: 3rem 1rem;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%232c3e50" width="100" height="100"/><path fill="%23D6B380" opacity="0.2" d="M0 0L100 100"></path></svg>');
-            background-color: var(--dark);
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 34, 126, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%232c3e50" width="100" height="100"/><path fill="%23D6B380" opacity="0.2" d="M0 0L100 100"></path></svg>');
+            background-size: cover;
             color: white;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
         }
         
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
         }
         
         .calculator {
             background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            border: 1px solid var(--light-gray);
         }
         
         .calculator h2 {
-            color: var(--dark);
-            margin-bottom: 1.5rem;
+            color: var(--darker);
+            margin-bottom: 2rem;
             text-align: center;
+            font-size: 2.2rem;
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
         label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--darker);
+            font-size: 1.1rem;
         }
         
         input[type="number"], select {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(214, 179, 128, 0.2);
         }
         
         .slider-container {
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
         }
         
         .slider {
@@ -163,178 +205,257 @@
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             background: var(--primary);
             cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
         
         .slider-value {
             text-align: center;
             font-weight: bold;
-            color: var(--dark);
-            margin-top: 0.5rem;
+            color: var(--darker);
+            margin-top: 0.8rem;
+            font-size: 1.1rem;
         }
         
-        .equipment-grid {
+        .package-selection {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
         
+        .package-option {
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .package-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .package-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(214, 179, 128, 0.1);
+        }
+        
+        .package-option h3 {
+            color: var(--darker);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .package-option h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .package-features {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+        
+        .package-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .package-features li i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
         .equipment-card {
             background-color: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid var(--primary);
         }
         
         .equipment-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
         }
         
         .equipment-img {
-            height: 180px;
-            background-color: #ddd;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #777;
             background: linear-gradient(to bottom right, #e0e0e0, #f5f5f5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .equipment-img i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            z-index: 2;
         }
         
         .equipment-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
         
         .equipment-content h3 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+            color: var(--darker);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
         
         .brand-tag {
             display: inline-block;
             background: var(--primary);
-            color: var(--dark);
-            padding: 0.3rem 0.6rem;
+            color: var(--darker);
+            padding: 0.4rem 0.8rem;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: bold;
             margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
         
         .btn {
             display: inline-block;
             background-color: var(--primary);
-            color: var(--dark);
-            padding: 0.8rem 1.5rem;
+            color: var(--darker);
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 4px;
-            font-size: 1rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             text-decoration: none;
             font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
         .btn:hover {
-            background-color: var(--dark);
+            background-color: var(--darker);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
         
         .btn-center {
             display: block;
             text-align: center;
-            margin: 1.5rem auto;
-            max-width: 200px;
+            margin: 2rem auto;
+            max-width: 220px;
         }
         
         .result {
             background-color: #f9f5eb;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
             text-align: center;
             display: none;
             border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         
         .result h3 {
-            color: var(--dark);
-            margin-bottom: 1rem;
+            color: var(--darker);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
         
         .price {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--primary);
+            margin-bottom: 1rem;
         }
         
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         
         .service-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s;
             border-top: 4px solid var(--primary);
         }
         
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
         .service-card h3 {
-            color: var(--dark);
-            margin-bottom: 1rem;
+            color: var(--darker);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
+            font-size: 1.5rem;
         }
         
         .service-card h3 i {
-            margin-right: 10px;
+            margin-right: 12px;
             color: var(--primary);
+            font-size: 1.8rem;
         }
         
         footer {
-            background-color: var(--dark);
+            background-color: var(--darker);
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
         }
         
         .contact-info {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin: 1.5rem 0;
+            gap: 2.5rem;
+            margin: 2rem 0;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
+            font-size: 1.1rem;
         }
         
         .contact-item i {
-            margin-right: 10px;
+            margin-right: 12px;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
-            color: var(--dark);
+            margin-bottom: 3rem;
+            color: var(--darker);
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1rem;
+            font-size: 2.4rem;
         }
         
         .section-title:after {
@@ -343,9 +464,54 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
             background: var(--primary);
+        }
+        
+        .mc-section {
+            background: linear-gradient(to right, #f9f5eb, #f2ebe0);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .mc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .mc-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mc-card h3 {
+            color: var(--darker);
+            margin-bottom: 1rem;
+        }
+        
+        .mc-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -355,15 +521,61 @@
             }
             
             nav ul li {
-                margin: 0.5rem 0;
+                margin: 0.6rem 0;
             }
             
-            .equipment-grid, .services {
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .equipment-grid, .services, .package-selection, .mc-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .calculator {
+                padding: 1.8rem;
+            }
+            
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
             }
             
             .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -374,24 +586,25 @@
             <div class="logo">KS</div>
             <h1>Kings Services</h1>
         </div>-->
-      <img src="LoGo@.svg"  width="80"  height="80" alt="Kings Services">  
-        <p>Professional Sound Equipment Rental for Events of All Sizes</p>
+          <img src="LoGo@.svg"  width="80"  height="80" alt="Kings Services">
+        <p>Premium Sound Equipment & MC Services for Events of All Sizes</p>
     </header>
     
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#calculator">Pricing Calculator</a></li>
-            <li><a href="#equipment">Our Equipment</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#mc">MC Services</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
     
     <div class="container">
         <section id="home" class="hero">
-            <h1>Premium Sound Rental Solutions</h1>
-            <p>From intimate gatherings to large events up to 2500 people, we provide top-quality audio equipment to make your event a success.</p>
+            <h1>Premium Sound & Entertainment Solutions</h1>
+            <p>From intimate gatherings to large events up to 2500 people, we provide top-quality audio equipment and professional MC services to make your event a success.</p>
             <a href="#calculator" class="btn">Get a Quote</a>
         </section>
         
@@ -422,9 +635,43 @@
                 <input type="number" id="duration" min="1" max="30" value="1">
             </div>
             
+            <h3 style="margin: 2rem 0 1rem; color: var(--darker);">Select Package</h3>
+            <div class="package-selection">
+                <div class="package-option" data-package="basic">
+                    <h3><i class="fas fa-star"></i> Basic Package</h3>
+                    <p>Sound equipment only</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Speakers & Mixers</li>
+                        <li><i class="fas fa-check"></i> Basic Setup</li>
+                        <li><i class="fas fa-times"></i> No MC Services</li>
+                    </ul>
+                </div>
+                
+                <div class="package-option" data-package="premium">
+                    <h3><i class="fas fa-crown"></i> Premium Package</h3>
+                    <p>Sound equipment + 1 MC</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Full Sound System</li>
+                        <li><i class="fas fa-check"></i> Professional Setup</li>
+                        <li><i class="fas fa-check"></i> 1 Professional MC (KSh 15,000)</li>
+                    </ul>
+                </div>
+                
+                <div class="package-option" data-package="deluxe">
+                    <h3><i class="fas fa-gem"></i> Deluxe Package</h3>
+                    <p>Sound equipment + 2 MCs</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Premium Sound System</li>
+                        <li><i class="fas fa-check"></i> Full Setup & Support</li>
+                        <li><i class="fas fa-check"></i> 2 Professional MCs (KSh 30,000)</li>
+                        <li><i class="fas fa-check"></i> Lighting Effects</li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="form-group">
                 <label>
-                    <input type="checkbox" id="technician"> Include Sound Technician (+KSh 1000/day)
+                    <input type="checkbox" id="technician"> Include Sound Technician (+KSh 1,000/day)
                 </label>
             </div>
             
@@ -440,7 +687,52 @@
                 <h3>Estimated Rental Cost</h3>
                 <div id="price" class="price">KSh 0.00</div>
                 <p>Price includes equipment rental for <span id="days-result">1</span> day(s) for <span id="people-result">100</span> people.</p>
+                <p id="package-result">Package: Basic</p>
                 <p id="discount-note" style="color: var(--primary); font-weight: bold; display: none;">Long-term rental discount applied!</p>
+            </div>
+        </section>
+        
+        <section id="packages">
+            <h2 class="section-title">Our Packages</h2>
+            <div class="package-selection">
+                <div class="package-option">
+                    <h3><i class="fas fa-star"></i> Basic Package</h3>
+                    <p>Perfect for small events and gatherings</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 4 Speakers</li>
+                        <li><i class="fas fa-check"></i> 1 Mixer</li>
+                        <li><i class="fas fa-check"></i> Basic Setup</li>
+                        <li><i class="fas fa-check"></i> 2 Microphones</li>
+                        <li><i class="fas fa-times"></i> No MC Services</li>
+                    </ul>
+                </div>
+                
+                <div class="package-option">
+                    <h3><i class="fas fa-crown"></i> Premium Package</h3>
+                    <p>Ideal for medium-sized events and weddings</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 8 Speakers</li>
+                        <li><i class="fas fa-check"></i> 2 Mixers</li>
+                        <li><i class="fas fa-check"></i> Full Setup</li>
+                        <li><i class="fas fa-check"></i> 4 Microphones</li>
+                        <li><i class="fas fa-check"></i> 1 Professional MC</li>
+                        <li><i class="fas fa-check"></i> Basic Lighting</li>
+                    </ul>
+                </div>
+                
+                <div class="package-option">
+                    <h3><i class="fas fa-gem"></i> Deluxe Package</h3>
+                    <p>Perfect for large events and concerts</p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 12+ Speakers</li>
+                        <li><i class="fas fa-check"></i> 3 Mixers</li>
+                        <li><i class="fas fa-check"></i> Professional Setup</li>
+                        <li><i class="fas fa-check"></i> 6+ Microphones</li>
+                        <li><i class="fas fa-check"></i> 2 Professional MCs</li>
+                        <li><i class="fas fa-check"></i> Full Lighting Setup</li>
+                        <li><i class="fas fa-check"></i> DJ Equipment</li>
+                    </ul>
+                </div>
             </div>
         </section>
         
@@ -448,7 +740,7 @@
             <h2 class="section-title">Our Equipment Inventory</h2>
             <div class="equipment-grid">
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-volume-up fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-volume-up"></i></div>
                     <div class="equipment-content">
                         <h3>Professional Speakers</h3>
                         <div>
@@ -462,7 +754,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-music fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-music"></i></div>
                     <div class="equipment-content">
                         <h3>ADMARK Complete Set</h3>
                         <span class="brand-tag">ADMARK</span>
@@ -471,7 +763,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-plug fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-plug"></i></div>
                     <div class="equipment-content">
                         <h3>Snake Cables</h3>
                         <p>3 x 50m professional audio snake cables for seamless connectivity.</p>
@@ -479,7 +771,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-drum fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-drum"></i></div>
                     <div class="equipment-content">
                         <h3>Drum Set</h3>
                         <p>Complete professional drum set for live performances.</p>
@@ -487,7 +779,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-guitar fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-guitar"></i></div>
                     <div class="equipment-content">
                         <h3>Guitars & Combos</h3>
                         <p>Solo guitar, bass guitar, and their respective combos.</p>
@@ -495,7 +787,7 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-sliders-h fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-sliders-h"></i></div>
                     <div class="equipment-content">
                         <h3>Audio Mixers</h3>
                         <p>3 professional mixers for perfect sound control and balancing.</p>
@@ -503,11 +795,46 @@
                 </div>
                 
                 <div class="equipment-card">
-                    <div class="equipment-img"><i class="fas fa-keyboard fa-3x"></i></div>
+                    <div class="equipment-img"><i class="fas fa-keyboard"></i></div>
                     <div class="equipment-content">
                         <h3>Keyboards</h3>
                         <p>2 professional keyboards for musical performances.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="mc" class="mc-section">
+            <h2 class="section-title">Professional MC Services</h2>
+            <p>We have 4 different professional MCs to suit your event style and needs. Each MC brings their unique personality and expertise to make your event memorable.</p>
+            
+            <div class="mc-grid">
+                <div class="mc-card">
+                    <h3>MC Eric</h3>
+                    <p>Specializes in corporate events and conferences</p>
+                    <div class="mc-price">KSh 15,000 per event</div>
+                    <p>10+ years of experience</p>
+                </div>
+                
+                <div class="mc-card">
+                    <h3>MC Grace</h3>
+                    <p>Expert in weddings and social gatherings</p>
+                    <div class="mc-price">KSh 15,000 per event</div>
+                    <p>Bilingual (English & Swahili)</p>
+                </div>
+                
+                <div class="mc-card">
+                    <h3>MC James</h3>
+                    <p>Specialist in concerts and music events</p>
+                    <div class="mc-price">KSh 15,000 per event</div>
+                    <p>Dynamic and energetic style</p>
+                </div>
+                
+                <div class="mc-card">
+                    <h3>MC Linda</h3>
+                    <p>Versatile MC for all event types</p>
+                    <div class="mc-price">KSh 15,000 per event</div>
+                    <p>Excellent crowd engagement</p>
                 </div>
             </div>
         </section>
@@ -517,17 +844,17 @@
             <div class="services">
                 <div class="service-card">
                     <h3><i class="fas fa-truck"></i> Equipment Delivery</h3>
-                    <p>We provide reliable transportation for all our equipment to your event location.</p>
+                    <p>We provide reliable transportation for all our equipment to your event location. Our fleet of vehicles ensures safe and timely delivery.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3><i class="fas fa-user-tie"></i> Sound Technicians</h3>
-                    <p>Our experienced technicians will set up and operate the equipment for optimal performance.</p>
+                    <p>Our experienced technicians will set up and operate the equipment for optimal performance throughout your event.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3><i class="fas fa-tools"></i> Setup & Support</h3>
-                    <p>Full setup, sound checking, and ongoing support throughout your event.</p>
+                    <p>Full setup, sound checking, and ongoing support throughout your event to ensure everything runs smoothly.</p>
                 </div>
             </div>
         </section>
@@ -558,8 +885,8 @@
     </div>
     
     <footer>
-        <p>&copy; 2023 Kings Services. All rights reserved.</p>
-        <p>Professional Sound Equipment Rental</p>
+        <p>&copy; 2025 Kings Services. All rights reserved.</p>
+        <p>Premium Sound Equipment Rental & MC Services</p>
     </footer>
 
     <script>
@@ -572,9 +899,13 @@
         const priceElement = document.getElementById('price');
         const daysResult = document.getElementById('days-result');
         const peopleResult = document.getElementById('people-result');
+        const packageResult = document.getElementById('package-result');
         const discountNote = document.getElementById('discount-note');
         const technicianCheckbox = document.getElementById('technician');
         const transportCheckbox = document.getElementById('transport');
+        const packageOptions = document.querySelectorAll('.package-option[data-package]');
+        
+        let selectedPackage = 'basic';
         
         // Sync slider and input field
         attendeesRange.addEventListener('input', function() {
@@ -587,6 +918,15 @@
             if (this.value > 2500) this.value = 2500;
             attendeesRange.value = this.value;
             attendeesValue.textContent = `${this.value} people`;
+        });
+        
+        // Package selection
+        packageOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                packageOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedPackage = this.getAttribute('data-package');
+            });
         });
         
         // Pricing calculation
@@ -629,6 +969,25 @@
                     multiplier = 1;
             }
             
+            // Package adjustments
+            let packageCost = 0;
+            let packageName = '';
+            
+            switch(selectedPackage) {
+                case 'basic':
+                    packageCost = 0;
+                    packageName = 'Basic Package';
+                    break;
+                case 'premium':
+                    packageCost = 15000;
+                    packageName = 'Premium Package (includes 1 MC)';
+                    break;
+                case 'deluxe':
+                    packageCost = 30000;
+                    packageName = 'Deluxe Package (includes 2 MCs)';
+                    break;
+            }
+            
             // Duration adjustment with discount for long-term rentals
             let durationAdjustment = duration;
             if (duration > 7) {
@@ -648,12 +1007,13 @@
             }
             
             // Calculate final price
-            const finalPrice = (basePrice * multiplier * durationAdjustment) + technicianCost + transportCost;
+            const finalPrice = (basePrice * multiplier * durationAdjustment) + packageCost + technicianCost + transportCost;
             
             // Display result
             priceElement.textContent = `KSh ${finalPrice.toLocaleString()}`;
             daysResult.textContent = duration;
             peopleResult.textContent = attendees;
+            packageResult.textContent = `Package: ${packageName}`;
             resultDiv.style.display = 'block';
             
             // Scroll to result
